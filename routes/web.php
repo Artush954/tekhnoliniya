@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
 Auth::routes();
 
 Route::get('/', 'PageController@index')->name('index');
@@ -23,8 +22,23 @@ Route::get('cart', 'PageController@cart')->name('cart');
 Route::get('category', 'PageController@category')->name('category');
 Route::get('checkout', 'PageController@checkout')->name('checkout');
 Route::get('contact', 'PageController@contact')->name('contact');
-Route::get('product', 'PageController@product')->name('product');
+
 Route::get('nashi-raboti', 'PageController@ourwork')->name('ourwork');
 Route::get('dostavka', 'PageController@dostavka')->name('deliver');
 Route::get('products', 'PageController@products')->name('products');
-Route::get('uslugi', 'PageController@uslugi')->name('uslugi');
+Route::get('privacy', 'PageController@privacy')->name('privacy');
+
+
+Route::get('product/{slug}/{id}', 'PageController@productlist')->name('product-page');
+
+Route::namespace('Product')->group(function () {
+
+    Route::get('services', 'ServiceController@index')->name('services');
+    Route::get('services/{slug}/{id}', 'ServiceController@show')->name('services-page');
+    Route::get('category/{slug}/{id}', 'CategoryController@show')->name('category-page');
+    Route::get('product/{id}', 'ProductController@productpage')->name('product-viewpage');
+
+
+    Route::post('ContactMessages', 'ContactController@ContactMessages')->name('contact_Mesages');
+
+});

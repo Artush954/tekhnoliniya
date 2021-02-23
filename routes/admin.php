@@ -9,8 +9,22 @@ Route::get('dashboard',function (){
 Route::get('/{page}/{id}/delete',function ($page, $id){
    return view('admin.layout.delete',compact('page','id'));
 })->name('destroy');
+
+Route::post('product/remove/image',"ProductController@removeImage");
+Route::post('about/remove/image',"AboutController@removeImage");
+
 Route::resources([
-    'page'=>'PageController'
+    'page'=>'PageController',
+    'service'=>'ServicesController',
+    'category'=>'CategoryController',
+    'slider'=>'SliderController',
+    'ourwork'=>'OurworkController',
+    'subcategory'=>'SubCategoryController',
+    'product'=>'ProductController',
+    'size'=>'SizeController',
+    'servicesInfo'=>'ServicesInfoController',
+    'thank'=>'ThanksController',
+    'about'=>'AboutController',
 ]);
 
 //Route::get('our-works',function (){

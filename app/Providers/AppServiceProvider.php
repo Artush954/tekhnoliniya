@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use App\Models\Service;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -24,6 +27,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+       Schema::defaultStringLength(191);
+
+       View::composer(['app.layouts.parts.header'],function($view){
+                $view->with('services', Service::orderBy('title','desc')->get() );
+       });
+       View::composer(['app.layouts.parts.header','product-list'],function($view){
+                $view->with('category', Category::with('category')->get() );
+       });
     }
 }

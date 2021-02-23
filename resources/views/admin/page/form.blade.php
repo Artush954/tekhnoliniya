@@ -88,8 +88,8 @@
                        @else
                        @if(isset($result->meta_desc))
                        value="{{ $result->meta_desc }}"
-                    @endif
-                    @endif
+                       @endif
+                        @endif
                 >
             </div>
 

@@ -4,168 +4,115 @@
 
 @section('content')
     <main class="main">
+        <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+            <div class="container">
+                <h1 class="page-title">Контакты</h1>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
         <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('index')}}">Главная</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Contact us</li>
+                    <li class="breadcrumb-item active" aria-current="page">Контакты</li>
                 </ol>
             </div><!-- End .container -->
         </nav><!-- End .breadcrumb-nav -->
-        <div class="container">
-            <div class="page-header page-header-big text-center" style="background-image: url({{asset('assets/images/page-header-bg.jpg')}})">
-                <h1 class="page-title text-white">Contact us<span class="text-white">keep in touch with us</span></h1>
-            </div><!-- End .page-header -->
-        </div><!-- End .container -->
 
-        <div class="page-content pb-0">
+        <div class="page-content">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad5c6584f096b60007fcd502a611b19f2a151161c2963c692296e32c0b0ff3d4a&amp;source=constructor" width="100%" height="505" frameborder="0"></iframe>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 mb-2 mb-lg-0">
-                        <h2 class="title mb-1">Contact Information</h2><!-- End .title mb-2 -->
-                        <p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <div class="contact-info">
-                                    <h3>The Office</h3>
+                    <div class="col-md-4">
+                        <div class="contact-box text-center">
+                            <h3>Офис</h3>
 
-                                    <ul class="contact-list">
-                                        <li>
-                                            <i class="icon-map-marker"></i>
-                                            70 Washington Square South New York, NY 10012, United States
-                                        </li>
-                                        <li>
-                                            <i class="icon-phone"></i>
-                                            <a href="tel:#">+92 423 567</a>
-                                        </li>
-                                        <li>
-                                            <i class="icon-envelope"></i>
-                                            <a href="mailto:#">info@Molla.com</a>
-                                        </li>
-                                    </ul><!-- End .contact-list -->
-                                </div><!-- End .contact-info -->
-                            </div><!-- End .col-sm-7 -->
+                            <a href="https://yandex.ru/maps/geo/derevnya_masyugino/53062290/?ll=36.568443%2C56.335438&z=16.6"><address> Клинский р-н., <br>д.Масюгино д.44</address></a>
+                        </div><!-- End .contact-box -->
+                    </div><!-- End .col-md-4 -->
 
-                            <div class="col-sm-5">
-                                <div class="contact-info">
-                                    <h3>The Office</h3>
+                    <div class="col-md-4">
+                        <div class="contact-box text-center">
+                            <h3>Начать разговор</h3>
 
-                                    <ul class="contact-list">
-                                        <li>
-                                            <i class="icon-clock-o"></i>
-                                            <span class="text-dark">Monday-Saturday</span> <br>11am-7pm ET
-                                        </li>
-                                        <li>
-                                            <i class="icon-calendar"></i>
-                                            <span class="text-dark">Sunday</span> <br>11am-6pm ET
-                                        </li>
-                                    </ul><!-- End .contact-list -->
-                                </div><!-- End .contact-info -->
-                            </div><!-- End .col-sm-5 -->
-                        </div><!-- End .row -->
-                    </div><!-- End .col-lg-6 -->
-                    <div class="col-lg-6">
-                        <h2 class="title mb-1">Got Any Questions?</h2><!-- End .title mb-2 -->
-                        <p class="mb-2">Use the form below to get in touch with the sales team</p>
+                            <div><a href="mailto:#">texnolinya@mail.ru</a></div>
+                            <div><a href="tel:#">+7 495 201-15-35</a>,<br> <a href="tel:#">+7 963 771-45-74</a></div>
+                        </div><!-- End .contact-box -->
+                    </div><!-- End .col-md-4 -->
 
-                        <form action="#" class="contact-form mb-3">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="cname" class="sr-only">Name</label>
-                                    <input type="text" class="form-control" id="cname" placeholder="Name *" required>
-                                </div><!-- End .col-sm-6 -->
+                    <div class="col-md-4">
+                        <div class="contact-box text-center">
+                            <h3>Время работы:</h3>
 
-                                <div class="col-sm-6">
-                                    <label for="cemail" class="sr-only">Email</label>
-                                    <input type="email" class="form-control" id="cemail" placeholder="Email *" required>
-                                </div><!-- End .col-sm-6 -->
-                            </div><!-- End .row -->
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <label for="cphone" class="sr-only">Phone</label>
-                                    <input type="tel" class="form-control" id="cphone" placeholder="Phone">
-                                </div><!-- End .col-sm-6 -->
-
-                                <div class="col-sm-6">
-                                    <label for="csubject" class="sr-only">Subject</label>
-                                    <input type="text" class="form-control" id="csubject" placeholder="Subject">
-                                </div><!-- End .col-sm-6 -->
-                            </div><!-- End .row -->
-
-                            <label for="cmessage" class="sr-only">Message</label>
-                            <textarea class="form-control" cols="30" rows="4" id="cmessage" required placeholder="Message *"></textarea>
-
-                            <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
-                                <span>SUBMIT</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </button>
-                        </form><!-- End .contact-form -->
-                    </div><!-- End .col-lg-6 -->
+                            <address> Пн, Вт, Ср, Чт, Пт, Сб, Вс 08:30 - 20:00</address>
+                        </div><!-- End .contact-box -->
+                    </div><!-- End .col-md-4 -->
                 </div><!-- End .row -->
 
-                <hr class="mt-4 mb-5">
+                <hr class="mt-3 mb-5 mt-md-1">
+                <div class="touch-container row justify-content-center">
+                    <div class="col-md-9 col-lg-7">
+                        <div class="text-center">
+                            <h2 class="title mb-1">Обратная связь</h2><!-- End .title mb-2 -->
+                            <p class="lead text-primary">
+                                Сотрудничаем с амбициозной компанией и людьми; мы хотели бы вместе создать что-то великое.
+                            </p><!-- End .lead text-primary -->
+                        </div><!-- End .text-center -->
 
-                <div class="stores mb-4 mb-lg-5">
-                    <h2 class="title text-center mb-3">Our Stores</h2><!-- End .title text-center mb-2 -->
+                        <form action="{{route('contact_Mesages')}}" method="post" class="contact-form mb-2">
+                            @csrf
+                            <div class="row">
+                                    <div class="col-sm-4">
+                                        <label for="cname" class="sr-only">Name</label>
+                                        <input type="text" name="name" class="form-control" id="cname"
+                                               placeholder="Имя *" required>
+                                    </div><!-- End .col-sm-4 -->
+                                    @error('name')
+                                    {{$message}}
+                                    @enderror
 
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="store">
-                                <div class="row">
-                                    <div class="col-sm-5 col-xl-6">
-                                        <figure class="store-media mb-2 mb-lg-0">
-                                            <img src="{{asset('assets/images/stores/img-1.jpg')}}" alt="image">
-                                        </figure><!-- End .store-media -->
-                                    </div><!-- End .col-xl-6 -->
-                                    <div class="col-sm-7 col-xl-6">
-                                        <div class="store-content">
-                                            <h3 class="store-title">Wall Street Plaza</h3><!-- End .store-title -->
-                                            <address>88 Pine St, New York, NY 10005, USA</address>
-                                            <div><a href="tel:#">+1 987-876-6543</a></div>
-
-                                            <h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
-                                            <div>Monday - Saturday 11am to 7pm</div>
-                                            <div>Sunday 11am to 6pm</div>
-
-                                            <a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
-                                        </div><!-- End .store-content -->
-                                    </div><!-- End .col-xl-6 -->
+                                    <div class="col-sm-4">
+                                        <label for="cemail" class="sr-only">Email</label>
+                                        <input type="email" name="email" autocomplete="email" class="form-control"
+                                               id="cemail" placeholder="Email *" required>
+                                    </div><!-- End .col-sm-4 -->
+                                    @error('email')
+                                    {{$message}}
+                                    @enderror
+                                    <div class="col-sm-4">
+                                        <label for="cphone" class="sr-only">Phone</label>
+                                        <input type="tel" name="number" class="form-control" id="cphone"
+                                               placeholder="Телефон">
+                                    </div><!-- End .col-sm-4 -->
+                                    @error('number')
+                                    {{$message}}
+                                    @enderror
                                 </div><!-- End .row -->
-                            </div><!-- End .store -->
-                        </div><!-- End .col-lg-6 -->
 
-                        <div class="col-lg-6">
-                            <div class="store">
-                                <div class="row">
-                                    <div class="col-sm-5 col-xl-6">
-                                        <figure class="store-media mb-2 mb-lg-0">
-                                            <img src="{{asset('assets/images/stores/img-2.jpg')}}" alt="image">
-                                        </figure><!-- End .store-media -->
-                                    </div><!-- End .col-xl-6 -->
-
-                                    <div class="col-sm-7 col-xl-6">
-                                        <div class="store-content">
-                                            <h3 class="store-title">One New York Plaza</h3><!-- End .store-title -->
-                                            <address>88 Pine St, New York, NY 10005, USA</address>
-                                            <div><a href="tel:#">+1 987-876-6543</a></div>
-
-                                            <h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
-                                            <div>Monday - Friday 9am to 8pm</div>
-                                            <div>Saturday - 9am to 2pm</div>
-                                            <div>Sunday - Closed</div>
-
-                                            <a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
-                                        </div><!-- End .store-content -->
-                                    </div><!-- End .col-xl-6 -->
-                                </div><!-- End .row -->
-                            </div><!-- End .store -->
-                        </div><!-- End .col-lg-6 -->
-                    </div><!-- End .row -->
-                </div><!-- End .stores -->
+                                <label for="csubject" class="sr-only">Subject</label>
+                                <input type="text" name="subject" class="form-control" id="csubject"
+                                       placeholder="Предмет">
+                                @error('subject')
+                                {{$message}}
+                                @enderror
+                                <label for="description" class="sr-only">Message</label>
+                                <textarea class="form-control"
+                                          name="description" cols="30" rows="4" id="description" required
+                                          placeholder="Сообщения "></textarea>
+                                @error('description')
+                                {{$message}}
+                                @enderror
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
+                                    <span>SUBMIT</span>
+                                    <i class="icon-long-arrow-right"></i>
+                                </button>
+                            </div><!-- End .text-center -->
+                        </form><!-- End .contact-form -->
+                    </div><!-- End .col-md-9 col-lg-7 -->
+                </div><!-- End .row -->
             </div><!-- End .container -->
-            <div id="map"></div><!-- End #map -->
         </div><!-- End .page-content -->
     </main><!-- End .main -->
+
 @endsection

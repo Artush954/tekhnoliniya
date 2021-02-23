@@ -9,6 +9,7 @@
     <meta name="keywords" content="HTML5 Template">
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <meta name="author" content="p-themes">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/about-header-bg.jpg') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/icons/favicon-32x32.png')}}">
@@ -29,6 +30,7 @@
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/plugins/nouislider/nouislider.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/skins/skin-demo-22.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/demos/demo-11.css')}}">
     @stack('stylesheets')
 </head>

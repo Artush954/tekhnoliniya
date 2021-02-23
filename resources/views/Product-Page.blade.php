@@ -3,26 +3,17 @@
 @section('title','Product')
 
 @section('content')
+
     <main class="main">
         <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
             <div class="container d-flex align-items-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Products</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">With Sidebar</li>
+                    <li class="breadcrumb-item active" aria-current="page">With Sidebaraaaa</li>
                 </ol>
 
-                <nav class="product-pager ml-auto" aria-label="Product">
-                    <a class="product-pager-link product-pager-prev" href="#" aria-label="Previous" tabindex="-1">
-                        <i class="icon-angle-left"></i>
-                        <span>Prev</span>
-                    </a>
 
-                    <a class="product-pager-link product-pager-next" href="#" aria-label="Next" tabindex="-1">
-                        <span>Next</span>
-                        <i class="icon-angle-right"></i>
-                    </a>
-                </nav><!-- End .pager-nav -->
             </div><!-- End .container -->
         </nav><!-- End .breadcrumb-nav -->
 
@@ -35,8 +26,7 @@
                                 <div class="col-md-6">
                                     <div class="product-gallery">
                                         <figure class="product-main-image">
-                                            <span class="product-label label-top">Top</span>
-                                            <img id="product-zoom" src="{{asset('assets/images/products/single/sidebar-gallery/1.jpg')}}" data-zoom-image="{{asset('assets/images/products/single/sidebar-gallery/1-big.jpg')}}" alt="product image">
+                                            <img id="product-zoom" src="{{asset('images/'.$product->image)}}" data-zoom-image="{{asset('assets/images/products/single/sidebar-gallery/1-big.jpg')}}" alt="product image">
 
                                             <a href="#" id="btn-product-gallery" class="btn-product-gallery">
                                                 <i class="icon-arrows"></i>
@@ -44,38 +34,25 @@
                                         </figure><!-- End .product-main-image -->
 
                                         <div id="product-zoom-gallery" class="product-image-gallery">
+                                            @forelse($product->gallery as $item)
                                             <a class="product-gallery-item active" href="#" data-image="assets/images/products/single/sidebar-gallery/1.jpg" data-zoom-image="{{asset('assets/images/products/single/sidebar-gallery/1-big.jpg')}}">
-                                                <img src="{{asset('assets/images/products/single/sidebar-gallery/1-small.jpg')}}" alt="product side">
+                                                <img src="{{asset('images/gallery/'.$item->image)}}" alt="product side">
                                             </a>
-
-                                            <a class="product-gallery-item" href="#" data-image="assets/images/products/single/sidebar-gallery/2.jpg" data-zoom-image="{{asset('assets/images/products/single/sidebar-gallery/2-big.jpg')}}">
-                                                <img src="{{asset('assets/images/products/single/sidebar-gallery/2-small.jpg')}}" alt="product cross">
-                                            </a>
-
-                                            <a class="product-gallery-item" href="#" data-image="assets/images/products/single/sidebar-gallery/3.jpg" data-zoom-image="{{asset('assets/images/products/single/sidebar-gallery/3-big.jpg')}}">
-                                                <img src="{{asset('assets/images/products/single/sidebar-gallery/3-small.jpg')}}" alt="product with model">
-                                            </a>
-
-                                            <a class="product-gallery-item" href="#" data-image="assets/images/products/single/sidebar-gallery/4.jpg" data-zoom-image="{{asset('assets/images/products/single/sidebar-gallery/4-big.jpg')}}">
-                                                <img src="{{asset('assets/images/products/single/sidebar-gallery/4-small.jpg')}}" alt="product back">
-                                            </a>
+                                            @empty
+                                                No IMGAE
+                                            @endforelse
                                         </div><!-- End .product-image-gallery -->
                                     </div><!-- End .product-gallery -->
                                 </div><!-- End .col-md-6 -->
 
                                 <div class="col-md-6">
                                     <div class="product-details product-details-sidebar">
-                                        <h1 class="product-title">Black faux leather chain trim sandals</h1><!-- End .product-title -->
+                                        <h1 class="product-title">{{$product->title}}</h1><!-- End .product-title -->
 
-                                        <div class="ratings-container">
-                                            <div class="ratings">
-                                                <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                                            </div><!-- End .ratings -->
-                                            <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
-                                        </div><!-- End .rating-container -->
+
 
                                         <div class="product-price">
-                                            $90.00
+                                            {{$product->price}} P
                                         </div><!-- End .product-price -->
 
                                         <div class="product-content">
@@ -91,21 +68,27 @@
                                             </div><!-- End .product-nav -->
                                         </div><!-- End .details-filter-row -->
 
-                                        <div class="details-filter-row details-row-size">
-                                            <label for="size">Size:</label>
-                                            <div class="select-custom">
-                                                <select name="size" id="size" class="form-control">
-                                                    <option value="#" selected="selected">Select a size</option>
-                                                    <option value="s">Small</option>
-                                                    <option value="m">Medium</option>
-                                                    <option value="l">Large</option>
-                                                    <option value="xl">Extra Large</option>
-                                                </select>
-                                            </div><!-- End .select-custom -->
+                                        <div class=" details-row-size">
+                                            <label for="color_price">Цена(цветная) - {{$product->color_price}} </label>
 
-                                            <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
+
+                                        </div><!-- End .details-filter-row -->
+                                        <div class=" details-row-size">
+                                            <label for="price">Цена(серая) - {{$product->price}} </label>
+
+
+                                        </div><!-- End .details-filter-row -->
+                                        <div class=" details-row-size">
+                                            <label for="color_price">Каличество - {{$product->color_price}} шт/м2 </label>
+
+
                                         </div><!-- End .details-filter-row -->
 
+                                        <div class=" details-row-size">
+                                            <label for="marka">Марка - {{$product->marka}} </label>
+
+
+                                        </div><!-- End .details-filter-row -->
                                         <div class="product-details-action">
                                             <div class="details-action-col">
                                                 <label for="qty">Qty:</label>

@@ -112,6 +112,7 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $validated = $this->validate($request, [
             'key' => 'required',
             'title' => 'required',
@@ -128,10 +129,10 @@ class PageController extends Controller
             $validated['image'] = $image;
         }
 
-        $page = $result->update($validated);
+        $result->update($validated);
 
         if (array_key_exists('btn_update_and_edit',$request->all())) {
-            return redirect()->route('admin.page.edit', ['page' => $page->id]);
+            return redirect()->route('admin.page.edit', ['page' => $result->id]);
         } elseif (array_key_exists('btn_update_and_list',$request->all())) {
             return redirect()->route('admin.page.index');
         } else {

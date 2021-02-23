@@ -234,6 +234,56 @@ return [
             'route'  => 'admin.page.index',
             'icon' => 'fas fa-clipboard-list',
         ],
+        [
+            'text' => 'Услуги',
+            'route'  => 'admin.service.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'Услуги-инфо',
+            'route'  => 'admin.servicesInfo.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'КАТАЛОГ',
+            'route'  => 'admin.category.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'Суб_КАТАЛОГ',
+            'route'  => 'admin.subcategory.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'Слидер',
+            'route'  => 'admin.slider.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'Наши работы',
+            'route'  => 'admin.ourwork.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'БЛАГОДАРНОСТИ',
+            'route'  => 'admin.thank.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'О компании',
+            'route'  => 'admin.about.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'Продукт',
+            'route'  => 'admin.product.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
+        [
+            'text' => 'Размер',
+            'route'  => 'admin.size.index',
+            'icon' => 'fas fa-clipboard-list',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

@@ -33,15 +33,9 @@
                                                     <div class="menu-title">Каталог</div>
                                                     <!-- End .menu-title -->
                                                     <ul>
-                                                        <li><a href="category-list.html">Тротуарная плитка</a></li>
-                                                        <li><a href="category-2cols.html">Бордюры</a>
-                                                        </li>
-                                                        <li><a href="category.html">Водостоки</a></li>
-                                                        <li><a href="category-4cols.html">Услуги по строительству домов
-                                                                и коттеджей</a>
-                                                        </li>
-                                                        <li><a href="category-market.html">Услуги по благоустройству
-                                                                территорийd</a></li>
+                                                        @foreach($category as $item)
+                                                        <li><a href="{{route('category-page',['slug' => $item->slug,'id'=>$item->id])}}">{{$item->title}}</a></li>
+                                                        @endforeach
                                                     </ul>
 
 
@@ -69,7 +63,7 @@
                             </div><!-- End .megamenu megamenu-md -->
                         </li>
                         <li>
-                            <a href="{{route('uslugi')}}" class="sf-with-ul">Услуги</a>
+                            <a href="{{route('services')}}" class="sf-with-ul">Услуги</a>
 
                             <div class="megamenu megamenu-sm">
                                 <div class="row no-gutters">
@@ -77,18 +71,10 @@
                                         <div class="menu-col">
                                             <div class="menu-title">Услуги</div><!-- End .menu-title -->
                                             <ul>
-                                                <li><a href="product.html">Укладка тротуарной плитки</a></li>
-                                                <li><a href="product-centered.html">Укладка брусчатки</a></li>
-                                                <li><a href="product-extended.html">Асфальтирование площадок и
-                                                        дворов</a></li>
-                                                <li><a href="product-gallery.html">Планировка и отсыпка территории
-                                                        земельного участка</a></li>
-                                                <li><a href="product-sticky.html">Бетонирование площадки и дорожек</a>
-                                                </li>
-                                                <li><a href="product-sidebar.html">Выравнивание земельного участка</a>
-                                                </li>
-                                                <li><a href="product-fullwidth.html">Укладка и устройство рулонного
-                                                        газона</a></li>
+                                                @foreach($services as $item)
+
+                                                <li><a href="{{route('services-page',['slug' => $item->slug,'id'=>$item->id])}}">{{$item->title}}</a></li>
+                                                @endforeach
                                                 <li><a href="product-masonry.html">Masonry Sticky Info</a></li>
                                             </ul>
                                         </div><!-- End .menu-col -->
