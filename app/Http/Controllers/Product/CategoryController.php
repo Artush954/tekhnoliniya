@@ -23,7 +23,8 @@ class CategoryController extends Controller
     public function show(Request $request,$slug,$id)
     {
         $subcategory = SubCategory::where('category_id','=',$id)->get();
+        $category = Category::where('id','=',$id)->get();
 
-        return view('SubCategory_show', compact('subcategory'));
+        return view('SubCategory_show', compact('subcategory','category'));
     }
 }

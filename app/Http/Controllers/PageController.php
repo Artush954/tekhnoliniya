@@ -7,7 +7,9 @@ use App\Models\Category;
 use App\Models\OurWorks;
 use App\Models\Product;
 use App\Models\Service;
+use App\Models\Size;
 use App\Models\Slider;
+use App\Models\SubCategory;
 use App\Models\Thanks;
 use Illuminate\Http\Request;
 
@@ -76,8 +78,9 @@ class PageController extends Controller
     {
         $products = Product::where('sub_category_id', '=', $id)->orderBy('title', 'asc')->get();
 
-//       dd($id);
-        return view('category', compact('products'));
+        $category = SubCategory::all();
+        $size = Size::all();
+        return view('category', compact('products','category','size'));
     }
 
     public function privacy()

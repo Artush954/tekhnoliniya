@@ -27,20 +27,20 @@
                     <ul class="nav-filter portfolio-filter justify-content-center">
                         <li class="active"><a href="#" data-filter="*">All</a></li>
                         @foreach($service as $item)
-                        <li><a href="#" data-filter="item-{{$item->id}}">{{$item->title}}</a></li>
+                        <li><a href="#" data-filter=".item-{{$item->id}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
                 </nav><!-- End .portfolio-nav -->
 
                 <div class="portfolio-container portfolio-nogap" data-layout="fitRows">
-                    @if(isset($photo))
+
                         @forelse($photo as $item)
 
-                    <div class="portfolio-item accessories item-{{$item->service->id}} col-sm-6 col-md-4 col-lg-3">
+                    <div class="portfolio-item item-{{$item->service->id}} col-sm-6 col-md-4 col-lg-3">
                         <div class="portfolio">
                             <figure class="portfolio-media">
                                 <a href="#">
-                                    <img src="{{asset('images/'.$item->image)}}" alt="item">
+                                    <img src="{{asset('images/'.$item->image)}}" alt="{{$item->service->title}}">
                                 </a>
                             </figure>
                             <div class="portfolio-content">
@@ -55,7 +55,7 @@
                                 <h1 style="text-align: center; padding-top: 70px;">No images</h1>
                             </div>
                         @endforelse
-                    @endif
+
 
                 </div><!-- End .portfolio-container -->
             </div><!-- End .container-fluid -->

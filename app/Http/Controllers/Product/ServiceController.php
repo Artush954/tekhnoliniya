@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\OurWorks;
+use App\Models\Product;
 use App\Models\Service;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -36,7 +37,8 @@ class ServiceController extends Controller
         $services = Service::where('slug', $slug)->with('serviceInfo')->first();
         $photo =OurWorks::where('service_id',$id)->get();
         $catalog =  Category::all();
-        return view ('service-show',compact('services','photo','catalog'));
+        $product = Product::inRandomOrder()->limit(5)->get();
+        return view ('service-show',compact('services','photo','catalog','product'));
 
     }
 }
