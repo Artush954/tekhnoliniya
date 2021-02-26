@@ -15,11 +15,15 @@ class PageController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('title', 'asc')->get();
+        $products = Product::inRandomOrder()->take(10)->get();
         $sliders = Slider::where('status', '1')
             ->orderBy('position', 'asc')
             ->get();
-        return view('index', compact('sliders', 'products'));
+
+        $catalogs =  Category::select('title','slug','image')->orderBy('title','asc')->get();
+        $topServices =  Service::select('title','slug','image')->orderBy('title','asc')->take(3)->get();
+
+        return view('index', compact('sliders', 'products','catalogs','topServices'));
     }
 
     public function about()
