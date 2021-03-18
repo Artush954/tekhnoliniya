@@ -43,11 +43,15 @@
 
     @yield('content')
 
-    {{-- Header section start--}}
+    {{-- Footer section start--}}
     @include('app.layouts.parts.footer')
-    {{-- Header section end--}}
+    {{-- Footer section end--}}
 </div>
+
+{{-- Mobile header section start--}}
 @include('app.layouts.parts.mobile_header')
+{{-- Mobile header section end--}}
+
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.hoverIntent.min.js')}}"></script>
