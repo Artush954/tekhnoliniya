@@ -14,38 +14,23 @@
         <nav class="mobile-nav">
             <ul class="mobile-menu">
                 <li class="megamenu-container active">
-                    <a href="{{route('index')}}">Главная</a>
+                    <a href="{{ route('index') }}">Главная</a>
 
                 </li>
                 <li>
-                    <a href="{{route('products')}}" class="sf-with-ul">Каталог</a>
+                    <a href="{{ route('categories') }}" class="sf-with-ul">Каталог</a>
                     <ul>
-                        <li><a href="category-list.html">Тротуарная плитка</a></li>
-                        <li><a href="category-2cols.html">Бордюры</a>
-                        </li>
-                        <li><a href="category.html">Водостоки</a></li>
-                        <li><a href="category-4cols.html">Услуги по строительству домов
-                                и коттеджей</a>
-                        </li>
-                        <li><a href="category-market.html">Услуги по благоустройству
-                                территорийd</a></li>
+                        @foreach($category as $item)
+                        <li><a href="{{ route('subcategories',['slug' => $item->slug]) }}">{{$item->title}}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li>
                     <a href="{{route('services')}}" class="sf-with-ul">Услуги</a>
                     <ul>
-                        <li><a href="product.html">Укладка тротуарной плитки</a></li>
-                        <li><a href="product-centered.html">Укладка брусчатки</a></li>
-                        <li><a href="product-extended.html">Асфальтирование площадок и
-                                дворов</a></li>
-                        <li><a href="product-gallery.html">Планировка и отсыпка территории
-                                земельного участка</a></li>
-                        <li><a href="product-sticky.html">Бетонирование площадки и дорожек</a>
-                        </li>
-                        <li><a href="product-sidebar.html">Выравнивание земельного участка</a>
-                        </li>
-                        <li><a href="product-fullwidth.html">Укладка и устройство рулонного
-                                газона</a></li>
+                        @foreach($services as $item)
+                        <li><a href="{{route('services-page',['slug' => $item->slug,'id'=>$item->id])}}">{{$item->title}}</a></li>
+                        @endforeach
 
                     </ul>
                 </li>

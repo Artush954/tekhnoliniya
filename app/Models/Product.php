@@ -3,10 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Product extends Model
 {
+    use HasSlug;
+
     protected $table = 'products';
+
     protected $fillable = [
         'title',
         'sub_category_id',
@@ -18,6 +23,16 @@ class Product extends Model
         'image',
         'marka',
     ];
+
+    /**
+     * @return SlugOptions/
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
+    }
 
     public function SubCategory()
     {

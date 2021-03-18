@@ -48,23 +48,23 @@
     {{-- Header section end--}}
 </div>
 @include('app.layouts.parts.mobile_header')
-
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.hoverIntent.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
 <script src="{{asset('assets/js/superfish.min.js')}}"></script>
 <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{ asset('assets/js/jquery.elevateZoom.min.js') }}"></script>
 <script src="{{asset('assets/js/imagesloaded.pkgd.min.js')}}"></script>
 <script src="{{asset('assets/js/isotope.pkgd.min.js')}}"></script>
 <script src="{{asset('assets/js/wNumb.js')}}"></script>
 <script src="{{asset('assets/js/nouislider.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap-input-spinner.js')}}"></script>
-<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('assets/js/cart.js')}}"></script>
 
 <!-- Main JS File -->
+@stack('scripts')
 <script src="{{asset('assets/js/main.js')}}"></script>
 <script src="{{asset('assets/js/demos/demo-11.js')}}"></script>
 </body>
-
 </html>

@@ -69,5 +69,13 @@ class FileService
         return null;
     }
 
+    public function applyFilter(Image $image)
+    {
+        return $image->resize(220, 220, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+    }
+
 
 }

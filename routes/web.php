@@ -25,20 +25,24 @@ Route::get('contact', 'PageController@contact')->name('contact');
 
 Route::get('nashi-raboti', 'PageController@ourwork')->name('ourwork');
 Route::get('dostavka', 'PageController@dostavka')->name('deliver');
-Route::get('products', 'PageController@products')->name('products');
+
 Route::get('privacy', 'PageController@privacy')->name('privacy');
 
 
-Route::get('product/{slug}/{id}', 'PageController@productlist')->name('product-page');
+
 
 Route::namespace('Product')->group(function () {
 
+    Route::get('categories', 'CategoryController@index')->name('categories');
+    Route::get('categories/{slug}', 'CategoryController@subCategories')->name('subcategories');
+
+    Route::get('products/{subCategory}', 'ProductController@index')->name('productList');
+    Route::get('product/{slug}', 'ProductController@show')->name('product-viewpage');
+
     Route::get('services', 'ServiceController@index')->name('services');
     Route::get('services/{slug}/{id}', 'ServiceController@show')->name('services-page');
-    Route::get('category/{slug}/{id}', 'CategoryController@show')->name('category-page');
-    Route::get('product/{id}', 'ProductController@productpage')->name('product-viewpage');
-
 
     Route::post('ContactMessages', 'ContactController@ContactMessages')->name('contact_Mesages');
+    Route::post('addOrder', 'ProductController@addOrder')->name('addOrder');
 
 });

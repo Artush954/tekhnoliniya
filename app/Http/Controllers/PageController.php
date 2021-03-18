@@ -73,19 +73,7 @@ class PageController extends Controller
         return view('deliver');
     }
 
-    public function products()
-    {
-        return view('product-list');
-    }
 
-    public function productlist(Request $request, $slug, $id)
-    {
-        $products = Product::where('sub_category_id', '=', $id)->orderBy('title', 'asc')->get();
-
-        $category = SubCategory::all();
-        $size = Size::all();
-        return view('category', compact('products','category','size'));
-    }
 
     public function privacy()
     {

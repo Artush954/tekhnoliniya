@@ -29,10 +29,10 @@ class AppServiceProvider extends ServiceProvider
     {
        Schema::defaultStringLength(191);
 
-       View::composer(['app.layouts.parts.header'],function($view){
+       View::composer(['app.layouts.parts.header','app.layouts.parts.mobile_header'],function($view){
                 $view->with('services', Service::orderBy('title','desc')->get() );
        });
-       View::composer(['app.layouts.parts.header','product-list'],function($view){
+       View::composer(['app.layouts.parts.header','products.categories','app.layouts.parts.mobile_header'],function($view){
                 $view->with('category', Category::with('category')->get() );
        });
     }

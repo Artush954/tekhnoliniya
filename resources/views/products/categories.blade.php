@@ -1,6 +1,6 @@
 @extends('app.layouts.app')
 
-@section('title','Category')
+@section('title','Каталог продукции')
 
 @section('content')
     <main class="main">
@@ -31,8 +31,8 @@
                                     <div class="row">
                                         <div class="col-6 col-lg-3">
                                             <figure class="product-media">
-                                                <a href="{{route('category-page',['slug' => $item->slug,'id'=>$item->id])}}">
-                                                    <img src="{{asset('images/'.$item->image)}}" alt="Product image"
+                                                <a href="{{route('subcategories',['slug' => $item->slug])}}">
+                                                    <img src="{{asset('images/'.$item->image)}}" alt="{{$item->title}}"
                                                          class="product-image">
                                                 </a>
                                             </figure><!-- End .product-media -->
@@ -40,19 +40,18 @@
 
                                         <div class="col-6 col-lg-3 order-lg-last">
                                             <div class="product-list-action">
-
-
-                                                <a href="{{route('category-page',['slug' => $item->slug,'id'=>$item->id])}}" class="btn-product btn-cart"><span>Смотреть</span></a>
+                                                <a href="{{ route('subcategories',['slug' => $item->slug]) }}" class="btn btn-outline-dark btn-rounded">
+                                                    <i class="icon-long-arrow-right"></i><span>Смотреть</span></a>
                                             </div><!-- End .product-list-action -->
                                         </div><!-- End .col-sm-6 col-lg-3 -->
 
                                         <div class="col-lg-6">
                                             <div class="product-body product-action-inner">
                                                 <div class="product-cat">
-                                                    <a href="{{route('category-page',['slug' => $item->slug,'id'=>$item->id])}}"><h5>{{$item->title}}</h5></a>
+                                                    <a href="{{route('subcategories',['slug' => $item->slug])}}">
+                                                        <h5>{{$item->title}}</h5>
+                                                    </a>
                                                 </div><!-- End .product-cat -->
-
-
                                             </div><!-- End .product-body -->
                                         </div><!-- End .col-lg-6 -->
                                     </div><!-- End .row -->
@@ -86,7 +85,8 @@
                                                         @foreach($item->category as $sub_item )
 
 
-                                                            <a href=""> <label class="custom-control-label" >{{$sub_item->title}}</label></a>
+                                                            <a href=""> <label
+                                                                    class="custom-control-label">{{$sub_item->title}}</label></a>
                                                         @endforeach
                                                     </div><!-- End .custom-checkbox -->
 
