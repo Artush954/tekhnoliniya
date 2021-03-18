@@ -21,13 +21,14 @@ Route::get('about', 'PageController@about')->name('about');
 Route::get('cart', 'PageController@cart')->name('cart');
 Route::get('category', 'PageController@category')->name('category');
 Route::get('checkout', 'PageController@checkout')->name('checkout');
-Route::get('contact', 'PageController@contact')->name('contact');
 
 Route::get('nashi-raboti', 'PageController@ourwork')->name('ourwork');
 Route::get('dostavka', 'PageController@dostavka')->name('deliver');
 
 Route::get('privacy', 'PageController@privacy')->name('privacy');
 
+Route::get('contact', 'ContactController@contact')->name('contact');
+Route::post('ContactMessages', 'ContactController@contactMessage')->name('contact.message');
 
 
 
@@ -40,9 +41,8 @@ Route::namespace('Product')->group(function () {
     Route::get('product/{slug}', 'ProductController@show')->name('product-viewpage');
 
     Route::get('services', 'ServiceController@index')->name('services');
-    Route::get('services/{slug}/{id}', 'ServiceController@show')->name('services-page');
+    Route::get('services/{slug}', 'ServiceController@show')->name('services-page');
 
-    Route::post('ContactMessages', 'ContactController@ContactMessages')->name('contact_Mesages');
     Route::post('addOrder', 'ProductController@addOrder')->name('addOrder');
 
 });

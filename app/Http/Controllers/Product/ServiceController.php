@@ -25,20 +25,19 @@ class ServiceController extends Controller
     {
         $services = Service::where('status', '1')->get();
 
-        return view('services', compact('services'));
+        return view('services.index', compact('services'));
     }
 
     /**
-     * @param Request $request
      * @param $slug
      */
-    public function show(Request $request,$slug,$id)
+    public function show($slug)
     {
-        $services = Service::where('slug', $slug)->with('serviceInfo')->first();
-        $photo =OurWorks::where('service_id',$id)->get();
-        $catalog =  Category::all();
+        $service = Service::with('serviceInfo')->where('slug', $slug)->first();
+        $ourWorks = OurWorks::where('service_id',$service->id)->get();
         $product = Product::inRandomOrder()->limit(5)->get();
-        return view ('service-show',compact('services','photo','catalog','product'));
+
+        return view ('services.view',compact('service','ourWorks','product'));
 
     }
 }

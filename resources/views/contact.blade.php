@@ -13,7 +13,6 @@
             <div class="container">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('index')}}">Главная</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Контакты</li>
                 </ol>
             </div><!-- End .container -->
@@ -59,7 +58,7 @@
                             </p><!-- End .lead text-primary -->
                         </div><!-- End .text-center -->
 
-                        <form action="{{route('contact_Mesages')}}" method="post" class="contact-form mb-2">
+                        <form action="{{route('contact.message')}}" method="post" class="contact-form mb-2">
                             @csrf
                             <div class="row">
                                     <div class="col-sm-4">
@@ -104,7 +103,7 @@
                                 @enderror
                             <div class="text-center">
                                 <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
-                                    <span>SUBMIT</span>
+                                    <span>Отправить</span>
                                     <i class="icon-long-arrow-right"></i>
                                 </button>
                             </div><!-- End .text-center -->

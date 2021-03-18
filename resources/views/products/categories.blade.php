@@ -23,8 +23,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
-
-
                         <div class="products mb-3">
                             @foreach($category as $item)
                                 <div class="product product-list">
@@ -40,7 +38,8 @@
 
                                         <div class="col-6 col-lg-3 order-lg-last">
                                             <div class="product-list-action">
-                                                <a href="{{ route('subcategories',['slug' => $item->slug]) }}" class="btn btn-outline-dark btn-rounded">
+                                                <a href="{{ route('subcategories',['slug' => $item->slug]) }}"
+                                                   class="btn btn-outline-dark">
                                                     <i class="icon-long-arrow-right"></i><span>Смотреть</span></a>
                                             </div><!-- End .product-list-action -->
                                         </div><!-- End .col-sm-6 col-lg-3 -->
@@ -64,35 +63,26 @@
                     <aside class="col-lg-3 order-lg-first">
                         <div class="sidebar sidebar-shop">
                             <div class="widget widget-clean">
-                                <label>Filters:</label>
-
                             </div><!-- End .widget widget-clean -->
                             @foreach($category as $item)
-
                                 <div class="widget widget-collapsible">
                                     <h3 class="widget-title">
-                                        <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true"
-                                           aria-controls="widget-1">
+                                        <a data-toggle="collapse" href="#widget-{{ $item->id }}" role="button" aria-expanded="true">
                                             {{$item->title}}
                                         </a>
                                     </h3><!-- End .widget-title -->
 
-                                    <div class="collapse show" id="widget-1">
+                                    <div class="collapse show" id="widget-{{ $item->id }}">
                                         <div class="widget-body">
                                             <div class="filter-items filter-items-count">
                                                 <div class="filter-item">
-                                                    <div class="custom-control custom-checkbox">
-                                                        @foreach($item->category as $sub_item )
-
-
-                                                            <a href=""> <label
+                                                    @foreach($item->category as $sub_item )
+                                                        <div class="custom-control custom-checkbox">
+                                                            <a href="{{ route('productList',['subCategory' => $sub_item->slug]) }}"> <label
                                                                     class="custom-control-label">{{$sub_item->title}}</label></a>
-                                                        @endforeach
-                                                    </div><!-- End .custom-checkbox -->
-
+                                                        </div><!-- End .custom-checkbox -->
+                                                    @endforeach
                                                 </div><!-- End .filter-item -->
-
-
                                             </div><!-- End .filter-items -->
                                         </div><!-- End .widget-body -->
                                     </div><!-- End .collapse -->

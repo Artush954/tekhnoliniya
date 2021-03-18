@@ -13,8 +13,8 @@
         <nav aria-label="breadcrumb" class="breadcrumb-nav">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">About us</li>
+                    <li class="breadcrumb-item"><a href="{{route('index')}}">Главная</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Доставка</li>
                 </ol>
             </div><!-- End .container -->
         </nav><!-- End .breadcrumb-nav -->

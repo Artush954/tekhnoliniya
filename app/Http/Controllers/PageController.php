@@ -51,11 +51,6 @@ class PageController extends Controller
         return view('checkout');
     }
 
-    public function contact()
-    {
-        return view('contact');
-    }
-
     public function product()
     {
         return view('product-page');
@@ -72,8 +67,6 @@ class PageController extends Controller
     {
         return view('deliver');
     }
-
-
 
     public function privacy()
     {

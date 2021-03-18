@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield("title","Tekhnoliniya")</title>
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Molla - Bootstrap eCommerce Template">
-    <meta name="author" content="p-themes">
+{{--    <meta name="keywords" content="HTML5 Template">--}}
+{{--    <meta name="description" content="Molla - Bootstrap eCommerce Template">--}}
+{{--    <meta name="author" content="p-themes">--}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/about-header-bg.jpg') }}">
@@ -17,8 +17,8 @@
     <link rel="manifest" href="{{asset('assets/images/icons/site.html')}}">
     <link rel="mask-icon" href="{{asset('assets/images/icons/safari-pinned-tab.svg')}}" color="#666666">
     <link rel="shortcut icon" href="{{asset('assets/images/icons/favicon.ico')}}">
-    <meta name="apple-mobile-web-app-title" content="Molla">
-    <meta name="application-name" content="Molla">
+{{--    <meta name="apple-mobile-web-app-title" content="Molla">--}}
+{{--    <meta name="application-name" content="Molla">--}}
     <meta name="msapplication-TileColor" content="#cc9966">
     <meta name="msapplication-config" content="{{asset('assets/images/icons/browserconfig.xml')}}">
     <meta name="theme-color" content="#ffffff">

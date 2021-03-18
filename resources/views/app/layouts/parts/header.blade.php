@@ -8,7 +8,7 @@
                 </button>
 
                 <a href="{{route('index')}}" class="logo">
-                    <img src="{{asset('assets/images/demos/demo-11/logo.png')}}" alt="Molla Logo" width="82"
+                    <img src="{{asset('logo.jpg')}}" alt="Технолиния" width="82"
                          height="25">
                 </a>
             </div><!-- End .header-left -->
@@ -35,11 +35,7 @@
                                                         <li><a href="{{ route('subcategories',['slug' => $item->slug]) }}">{{$item->title}}</a></li>
                                                         @endforeach
                                                     </ul>
-
-
                                                 </div><!-- End .col-md-6 -->
-
-
                                             </div><!-- End .row -->
                                         </div><!-- End .menu-col -->
                                     </div><!-- End .col-md-8 -->
@@ -71,7 +67,7 @@
                                             <ul>
                                                 @foreach($services as $item)
 
-                                                <li><a href="{{route('services-page',['slug' => $item->slug,'id'=>$item->id])}}">{{$item->title}}</a></li>
+                                                <li><a href="{{route('services-page',['slug' => $item->slug,])}}">{{$item->title}}</a></li>
                                                 @endforeach
                                                 <li><a href="product-masonry.html">Masonry Sticky Info</a></li>
                                             </ul>

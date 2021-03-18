@@ -1,6 +1,6 @@
 @extends('app.layouts.app')
 
-@section('title','Category')
+@section('title',$service->title)
 
 @section('content')
 
@@ -8,9 +8,9 @@
         <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Fullwidth With Sidebar</li>
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Главная</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('services') }}">Услуги</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $service->title }}</li>
                 </ol>
             </div><!-- End .container -->
         </nav><!-- End .breadcrumb-nav -->
@@ -18,11 +18,12 @@
         <div class="page-content">
             <div class="container">
                 <figure class="entry-media">
-                    <div class="owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl">
-                        <img src="{{asset('assets/images/blog/single/fullwidth-sidebar/1.jpg')}}" alt="image desc">
-                        <img src="{{asset('assets/images/blog/single/fullwidth-sidebar/2.jpg')}}" alt="image desc">
-                        <img src="{{asset('assets/images/blog/single/fullwidth-sidebar/3.jpg')}}" alt="image desc">
-                    </div><!-- End .owl-carousel -->
+{{-- TODO stex kisata mnace    --}}
+{{--                      <img src="{{asset('images/'.$service->image)}}" alt="image desc">--}}
+{{--                    <div class="owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl">--}}
+{{--                        @foreach($ourWorks as $work)--}}
+{{--                        @endforeach--}}
+{{--                    </div><!-- End .owl-carousel -->--}}
                 </figure><!-- End .entry-media -->
                 <div class="row">
                     <div class="col-lg-9">
@@ -48,8 +49,7 @@
                                                         style="margin-top: 15px; margin-bottom: 15px; text-align: center;">Что входит &nbsp;</p></span>
                                             </td>
                                         </tr>
-                                        @foreach( $services->serviceInfo as $item)
-
+                                        @foreach( $service->serviceInfo as $item)
                                             <tr>
                                                 <td colspan="3"><p
                                                         style="margin-top: 15px; margin-bottom: 15px; text-align: center;">
@@ -61,7 +61,8 @@
                                                          src="{{ asset('images/'.$item->image) }}"
                                                          height="195" title="ukadka_na-gotovoe_osnovanie-min.png"
                                                          style="height: auto; margin: 10px 0px;"><br></td>
-                                                <td><p style="margin-top: 15px; margin-bottom: 15px;">{{$item->price}} руб/м<span
+                                                <td><p style="margin-top: 15px; margin-bottom: 15px;">{{$item->price}}
+                                                        руб/м<span
                                                             style="position: relative; font-size: 12px; line-height: 0; vertical-align: baseline; top: -0.5em;">2</span>
                                                     </p><span
                                                         style="position: relative; font-size: 12px; line-height: 0; vertical-align: baseline; top: -0.5em;"></span><br>
@@ -88,29 +89,31 @@
                             <div class="widget widget-cats">
                                 <h3 class="widget-title">КАТАЛОГ</h3><!-- End .widget-title -->
                                 <ul>
-                                    @foreach($catalog as $item)
-                                    <li><a href="{{route('category-page',['slug' => $item->slug,'id'=>$item->id])}}">{{$item->title}}</a></li>
+                                    @foreach($category as $item)
+                                        <li>
+                                            <a href="{{ route('categories',['slug' => $item->slug]) }}">{{ $item->title }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div><!-- End .widget -->
 
                             <div class="widget">
-                                <h3 class="widget-title">Popular Posts</h3><!-- End .widget-title -->
+                                <h3 class="widget-title">Другие товары</h3><!-- End .widget-title -->
 
                                 <ul class="posts-list">
                                     @foreach($product as $item)
-                                    <li>
-                                        <figure>
-                                            <a href="#">
-                                                <img src="{{asset('images/'.$item->image)}}" alt="post">
-                                            </a>
-                                        </figure>
+                                        <li>
+                                            <figure>
+                                                <a href="#">
+                                                    <img src="{{asset('images/'.$item->image)}}" alt="post">
+                                                </a>
+                                            </figure>
 
-                                        <div>
+                                            <div>
 
-                                            <h4><a href="#">{{$item->title}}</a></h4>
-                                        </div>
-                                    </li>
+                                                <h4><a href="#">{{$item->title}}</a></h4>
+                                            </div>
+                                        </li>
                                     @endforeach
                                 </ul><!-- End .posts-list -->
                             </div><!-- End .widget -->

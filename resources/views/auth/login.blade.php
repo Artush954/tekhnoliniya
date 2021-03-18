@@ -12,7 +12,7 @@
                         <div class="form-tab">
                             <ul class="nav nav-pills nav-fill" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active">Sign in</a>
+                                    <a class="nav-link active">Вход</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
@@ -20,7 +20,7 @@
                                     <form action="{{route('login')}}" method="post">
                                         @csrf
                                         <div class="form-group">
-                                            <label for="email">E-Mail Address</label>
+                                            <label for="email">E-почта</label>
                                             <input type="text"
                                                    class="form-control @error('email') is-invalid @enderror"
                                                    id="email"
@@ -34,7 +34,7 @@
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
-                                            <label for="singin-password-2">Password</label>
+                                            <label for="singin-password-2">Пароль</label>
                                             <input id="password"
                                                    type="password"
                                                    name="password"
@@ -49,7 +49,7 @@
 
                                         <div class="form-footer">
                                             <button type="submit" class="btn btn-outline-primary-2">
-                                                <span>Login</span>
+                                                <span>Вход</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>
 
@@ -57,21 +57,10 @@
                                                 <input type="checkbox" class="custom-control-input" name="remember"
                                                        id="remember" {{ old('remember') ? 'checked' : '' }}>
                                                 <label class="custom-control-label"
-                                                       for="signin-remember-2">Remember Me <a
-                                                        href="#">Privacy Policy</a></label>
+                                                       for="signin-remember-2">Запомнить мне</label>
                                             </div><!-- End .custom-checkbox -->
                                         </div><!-- End .form-footer -->
                                     </form>
-
-                                    <div class="form-choice">
-                                        <p class="text-center">
-                                            @if (Route::has('password.request'))
-                                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                    Forgot Your Password
-                                                </a>
-                                            @endif
-                                        </p>
-                                    </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
                             </div><!-- End .tab-content -->
                         </div><!-- End .form-tab -->
