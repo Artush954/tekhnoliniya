@@ -59,10 +59,11 @@ class ProductController extends Controller
             $biling->save();
 
             foreach ($request->data as $item){
+
                 $order= new Orders();
-                $order->product_id = $item->id;
+                $order->product_id = $item['id'];
                 $order->biling_id = $biling->id;
-                $order->cut = $item->count;
+                $order->cut = $item['count'];
                 $order->save();
             }
 
@@ -74,7 +75,6 @@ class ProductController extends Controller
                 'message' => $exception->getMessage()
             ];
         }
-        return $response;
 
     }
 

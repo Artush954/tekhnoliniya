@@ -7,5 +7,5 @@
 @stop
 
 @section('content')
-    @include('admin.thanks.form',['result'=>$result,'page'=>'slider'])
+    @include('admin.slider.form',['result'=>$result,'page'=>'slider'])
 @stop
