@@ -25,10 +25,10 @@ class FileService
             if ($size){
                 $img = Image::make($file->getRealPath());
                 $img->resize($size['w'], $size['h']);
-                $img->save($path.$fileName);
-            }else{
-                $file->move($path, $fileName);
+                $img->save($path.'thumb/'.$fileName);
             }
+
+            $file->move($path, $fileName);
             return $fileName;
         }
 
@@ -62,16 +62,20 @@ class FileService
     public function remove($fileName, $path = '/images/')
     {
         $file = public_path("$path") . $fileName;
+        $thumbFile = public_path("$path".'thumb/') . $fileName;
         if (file_exists($file)) {
             unlink($file);
-            return true;
+            if (file_exists($thumbFile)) {
+                unlink($thumbFile);
+            }
+            return  true;
         }
         return null;
     }
 
     public function applyFilter(Image $image)
     {
-        return $image->resize(220, 220, function ($constraint) {
+        return $image->resize(280, 280, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
         });

@@ -54,9 +54,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = SubCategory::all();
-        $size= Size::all();
+        $size = Size::all();
 
-        return view('admin.product.create', compact('categories','size'));
+        return view('admin.product.create', compact('categories', 'size'));
     }
 
     /**
@@ -80,7 +80,7 @@ class ProductController extends Controller
             'gallery' => 'required'
         ]);
 
-        $image = $this->fileService->upload($request->file('image'));
+        $image = $this->fileService->upload($request->file('image'), '/images/', ['w' => 280, 'h' => 280]);
         $validated['image'] = $image;
 
         $page = Product::create($validated);
@@ -120,9 +120,9 @@ class ProductController extends Controller
     {
         $result = Product::findOrFail($id);
         $categories = SubCategory::all();
-        $size= Size::all();
+        $size = Size::all();
 
-        return view('admin.product.edit', compact('categories', 'result','size'));
+        return view('admin.product.edit', compact('categories', 'result', 'size'));
     }
 
     /**
@@ -149,11 +149,10 @@ class ProductController extends Controller
 
         $result = Product::findOrFail($id);
         if ($request->hasFile('image')) {
-            $image = $this->fileService->upload($request->file('image'));
+            $image = $this->fileService->upload($request->file('image'), '/images/', ['w' => 280, 'h' => 280]);
             $this->fileService->remove($result->image);
             $validated['image'] = $image;
         }
-
 
         if ($request->hasFile('gallery')) {
             $gallery = $this->fileService->multipleUpload($request->file('gallery'), $this->fileDir);
@@ -168,7 +167,6 @@ class ProductController extends Controller
         } else {
             return redirect()->route('admin.product.create');
         }
-
     }
 
     /**
@@ -180,6 +178,14 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $result = Product::findOrFail($id);
+        $this->fileService->remove($result->image);
+
+        if ($result->gallery) {
+            foreach ($result->gallery as $item) {
+                $this->fileService->remove($item->image);
+            }
+        }
+
         $result->delete();
 
         return redirect()->route('admin.product.index');
