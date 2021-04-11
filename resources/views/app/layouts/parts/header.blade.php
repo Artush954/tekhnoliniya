@@ -8,7 +8,7 @@
                 </button>
 
                 <a href="{{route('index')}}" class="logo">
-                    <img src="{{asset('logo.jpg')}}" alt="Технолиния" width="82"
+                    <img src="{{asset('logo.png')}}" alt="Технолиния" width="82"
                          height="25">
                 </a>
             </div><!-- End .header-left -->
